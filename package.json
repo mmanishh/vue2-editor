@@ -1,10 +1,10 @@
 {
-  "name": "vue2-editor",
-  "version": "2.10.3",
-  "description": "HTML editor using Vue.js 2, and Quill.js, an open source editor",
+  "name": "vue2-editor-tbl",
+  "version": "2.10.4",
+  "description": "HTML editor using Vue.js 2, and Quill.js, an open source editor including quill better table",
   "author": {
-    "name": "David Royer",
-    "email": "droyer01@gmail.com"
+    "name": "Manish Maharjan",
+    "email": "dfrozenthrone@gmail.com"
   },
   "license": "MIT",
   "scripts": {
@@ -125,7 +125,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/davidroyer/vue2-editor.git"
+    "url": "https://github.com/mmanishh/vue2-editor"
   },
   "sideeffects": false
 }
