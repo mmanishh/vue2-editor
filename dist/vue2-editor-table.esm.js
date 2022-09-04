@@ -1,5 +1,5 @@
 /*!
- * vue2-editor-table v2.10.5 
+ * vue2-editor-table v2.10.6 
  * (c) 2022 Manish Maharjan
  * Released under the MIT License.
  */
@@ -6473,7 +6473,7 @@ var __vue_staticRenderFns__ = [];
     undefined
   );
 
-var version = "2.10.5"; // Declare install function executed by Vue.use()
+var version = "2.10.6"; // Declare install function executed by Vue.use()
 
 function install(Vue) {
   if (install.installed) return;
