@@ -1,10 +1,10 @@
 {
-  "name": "vue2-editor",
-  "version": "2.10.2",
-  "description": "HTML editor using Vue.js 2, and Quill.js, an open source editor",
+  "name": "vue2-editor-table",
+  "version": "2.10.5",
+  "description": "HTML editor using Vue.js 2, and Quill.js, an open source editor including quill better table",
   "author": {
-    "name": "David Royer",
-    "email": "droyer01@gmail.com"
+    "name": "Manish Maharjan",
+    "email": "dfrozenthrone@gmail.com"
   },
   "license": "MIT",
   "scripts": {
@@ -64,16 +64,14 @@
       }
     ]
   },
-  "main": "dist/vue2-editor.common.js",
-  "module": "dist/vue2-editor.esm.js",
-  "unpkg": "dist/vue2-editor.umd.min.js",
+  "main": "dist/vue2-editor-table.common.js",
+  "module": "dist/vue2-editor-table.esm.js",
+  "unpkg": "dist/vue2-editor-table.umd.min.js",
   "files": [
     "dist",
     "nuxt"
   ],
-  "dependencies": {
-    "quill": "^1.3.6"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^7.6.1",
     "@commitlint/config-conventional": "^7.6.0",
@@ -91,6 +89,8 @@
     "http-server": "^0.11.1",
     "node-sass": "^4.12.0",
     "querystringify": "^2.1.1",
+    "quill": "^2.0.0-dev.3",
+    "quill-better-table": "^1.2.10",
     "quill-image-drop-module": "^1.0.3",
     "quill-image-resize-module": "^3.0.0",
     "sass": "^1.21.0",
@@ -110,7 +110,7 @@
     "/demo",
     "!.vuepress"
   ],
-  "jsdelivr": "dist/vue2-editor.umd.min.js",
+  "jsdelivr": "dist/vue2-editor-table.umd.min.js",
   "keywords": [
     "vue",
     "vue-component",
@@ -124,7 +124,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/davidroyer/vue2-editor.git"
+    "url": "https://github.com/mmanishh/vue2-editor"
   },
   "sideeffects": false
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="quillWrapper">
-    <slot name="toolbar"></slot>
+    <slot name="toolbar"> </slot>
     <div :id="id" ref="quillContainer"></div>
     <input
       v-if="useCustomImageHandler"
@@ -8,7 +8,7 @@
       ref="fileInput"
       type="file"
       accept="image/*"
-      style="display:none;"
+      style="display: none;"
       @change="emitImageInfo($event)"
     />
   </div>
@@ -20,6 +20,8 @@ import defaultToolbar from "@/helpers/default-toolbar";
 import oldApi from "@/helpers/old-api";
 import mergeDeep from "@/helpers/merge-deep";
 import MarkdownShortcuts from "@/helpers/markdown-shortcuts";
+import QuillBetterTable from "quill-better-table";
+import { QuillToolbarButton } from "../helpers/DynamicQuillTools";
 
 export default {
   name: "VueEditor",
@@ -105,6 +107,7 @@ export default {
 
       this.prepareEditorConfig(editorConfig);
       this.quill = new Quill(this.$refs.quillContainer, editorConfig);
+      this.addCustomToolbar();
     },
 
     setModules() {
@@ -115,7 +118,43 @@ export default {
         Quill.register("modules/markdownShortcuts", MarkdownShortcuts, true);
         modules["markdownShortcuts"] = {};
       }
+      modules["table"] = false;
+      // better-table module config
+      Quill.register(
+        {
+          "modules/better-table": QuillBetterTable
+        },
+        true
+      );
+      modules["better-table"] = {
+        operationMenu: {
+          items: {
+            unmergeCells: {
+              text: "Another unmerge cells name"
+            }
+          }
+        }
+      };
+      modules["keyboard"] = {
+        bindings: QuillBetterTable.keyboardBindings
+      };
+      // better-table module config end
       return modules;
+    },
+
+    addCustomToolbar() {
+      const myButton = new QuillToolbarButton({
+        icon: `<svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path fill="none" stroke="#000" stroke-width="2" d="M8,5 L8,23 M16,5 L16,23 M1,11 L23,11 M1,5 L23,5 M1,17 L23,17 M1,1 L23,1 L23,23 L1,23 L1,1 Z"/>
+</svg>`
+      });
+      myButton.onClick = function(quill) {
+        // adding better vue table
+        let tableModule = quill.getModule("better-table");
+        tableModule.insertTable(3, 3);
+        // For example, get the selected text and convert it to uppercase:
+      };
+      myButton.attach(this.quill);
     },
 
     prepareEditorConfig(editorConfig) {
@@ -218,3 +257,4 @@ export default {
 
 <style src="quill/dist/quill.snow.css"></style>
 <style src="../assets/vue2-editor.scss" lang="scss"></style>
+<style src="../assets/quill-better-table.css"></style>
